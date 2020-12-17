@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 0px;
+   }
+   body{
+    background-image: url("https://images.pexels.com/photos/3483098/pexels-photo-3483098.jpeg");
+    background-size: 100%;
+}
+div{
+    width:500px;
+    margin:5px;
+    border: solid blue 3px;
+   background-color: rgba(255, 255, 255, 0.938);
+    padding:20px;
+}
+.notranslate{
+    display: none;
+}

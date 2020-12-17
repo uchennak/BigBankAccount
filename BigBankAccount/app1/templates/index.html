@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+   
+    
+  </head>
+  <body>
+      
+      <div id='above_wrapper'>
+        <div><p><a href='/'>Home</a> </p></div>  
+            <div><p>Your Gold: {{user.account_balance}}</p></div>
+            <div><p>Coins: {{user.coins}}</p></div>
+            <div><p><a href='/display_invest'>Invest:</a> {{user.invested_balance}}</p></div>
+            <div><p><a href='/display_account'>Account</a></p></div>
+            <div><p><a href='/logout'>Logout</a></p></div>
+      </div>
+      
+    <div id='wrapper'>
+     
+      <div>
+              <form class='option' action="/process_money/" method="post">
+                  {% csrf_token %}
+                  <h2>100</h2>
+                  <p>100% chance to get 10-30</p>
+                                  
+                  <button name='farm' type="submit">Find Gold</button>
+            
+              </form>
+      </div>
+        
+      <div>
+          <form class='option' action="/process_money/" method="post">
+              {% csrf_token %}
+              <h2>80</h2>
+              <p>80% chance to get 20-50</p>
+              <p>20% chance to lose 20-50</p>
+              
+             
+              <button name='cave' type="submit">Find Gold</button>
+          </form>
+      </div>
+      <div>
+          <form class='option' action="/process_money/" method="post" >
+              {% csrf_token %}
+              <h2>50</h2>
+              <p>50% chance to get 50-80</p>
+              <p>50% chance to lose 25-40</p>
+             
+              <button name='house' type="submit">Find Gold</button>
+          </form>
+      </div>
+      <div>
+          <form class='option' action="/process_money/" method="post">
+              {% csrf_token %}
+              <h2>20</h2>
+              <p>20% chance to get 80-150</p>
+              <p>80% chance to lose 40-75</p>
+              
+              <button name='casino' type="submit">Find Gold</button>
+          </form>
+  
+      </div>
+        
+      <p> Recent Activity:</p>
+      
+      <div id='activities'>
+          <ul>
+            
+              {% for x in request.session.activities %}
+                  <li>{{x}}</li>
+              {% endfor %}
+
+              
+          </ul>
+  
+  
+      </div>
+        
+    </div>
+  </body>
+  
+</html> 

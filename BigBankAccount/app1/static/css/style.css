@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+   }
+   body{
+    background-image: url("https://images.pexels.com/photos/3483098/pexels-photo-3483098.jpeg");
+    background-size: 100%;
+}
+div{
+    width:auto;
+    margin:5px;
+    border: solid black 3px;
+    display: inline-block;
+    padding:20px;
+}
+
+#activities{
+    background-color: rgba(19, 168, 255, 0.993);
+    width: 1000px;
+    height: 100px;
+    overflow-y:auto;
+    
+}
+
+#above_wrapper {
+    width: 1200px;
+    
+        background-color: cyan;
+        margin: 20px;
+        padding: 16px;
+}
+#wrapper{
+    width: 1200px;
+
+    background-color: silver;
+    margin: 20px;
+    padding: 16px;
+   }
+
+   
+ 
+   
+   

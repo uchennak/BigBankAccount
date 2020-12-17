@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login_register.css' %}">
+</head>
+<body>
+        
+    <div class='credentials'>
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+    <h2>Login</h2>
+        <form action="/login" method="post">
+        {% csrf_token %}
+        <p>Email: <input type='text' name='email' /></p>
+        <p>Password: <input type='password' name='password' /></p>
+        <button type="submit">Login</button>
+        Not signed up yet? <a href="/display_register">Register Here</a>
+        
+        </form>
+        
+    </div>
+</body>
+</html>
