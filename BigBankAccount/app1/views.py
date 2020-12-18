@@ -13,6 +13,8 @@ def index(request):
     context = {
     "user":user
 }
+
+    #setting the levels
     if user.account_balance > 2999:
         user.level = 4
     elif user.account_balance > 1999:
@@ -57,8 +59,7 @@ def process_money(request):
             request.session['activities'].append("You just gained {} from the farm: ({})".format(gift,time))
             request.session.save()
             
-           
-
+        
         elif 'cave' in request.POST:
             user.coins -= int(1)
             user.save()
