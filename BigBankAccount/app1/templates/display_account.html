@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/invest.css' %}"> 
+   
+    
+  </head>
+  <body>
+    <div id='above_wrapper'>
+      <div><p><a href='/'>Home</a> </p></div>  
+          <div><p>Your Gold: {{user.account_balance}}</p></div>
+          <div><p>Coins: {{user.coins}}</p></div>
+          <div><p><a href='/display_invest'>Invest:</a> {{user.invested_balance}}</p></div>
+          <div><p><a href='/display_account'>Account</a></p></div>
+          <div><p><a href='/logout'>Logout</a></p></div>
+    </div>
+  <div>
+    
+      <p>User:{{user.username}}</p>
+      <p>Level:{{user.level}}</p>
+      <p>Gold:{{user.account_balance}}</p>
+      <p>Coins:{{user.coins}}</p>
+      <p>Invested:{{user.invested_balance}}</p>
+      <p>Join Date:{{user.date_joined}}</p>
+  </div>
+
+  </body>
+</html>
