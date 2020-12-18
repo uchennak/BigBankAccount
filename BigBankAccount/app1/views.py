@@ -13,12 +13,14 @@ def index(request):
     context = {
     "user":user
 }
-    if user.account_balance > 999:
-        user.level = 2
+    if user.account_balance > 2999:
+        user.level = 4
     elif user.account_balance > 1999:
         user.level = 3
-    elif user.account_balance > 2999:
-        user.level = 4
+    elif user.account_balance > 999:
+        user.level = 2
+    elif user.account_balance < 999:
+        user.level = 1
 
     user.save()
 
