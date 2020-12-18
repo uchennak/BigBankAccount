@@ -215,9 +215,7 @@ def invest(request):
         return redirect('/')
     
     user = User.objects.get(id=request.session['user_id'])
-    if user.account_balance < 100:
-        messages.error(request, 'You need at least 100 in your account to invest ')
-        return redirect('/display_invest')
+    
 
     if int(request.POST['amount']) > user.account_balance:
         messages.error(request, "You can't invest more than you have")
