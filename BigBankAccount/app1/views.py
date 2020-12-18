@@ -13,7 +13,15 @@ def index(request):
     context = {
     "user":user
 }
-    
+    if user.account_balance > 1000:
+        user.level = 2
+    elif user.account_balance > 2000:
+        user.level = 3
+    elif user.account_balance > 3000:
+        user.level = 4
+
+    user.save()
+
     if 'activities' not in request.session:
         request.session['activities'] = []
     
@@ -32,6 +40,10 @@ def process_money(request):
         user = User.objects.get(id=request.session["user_id"])
         time=strftime("%Y-%m-%d %H:%M %p", gmtime())
 
+        #This is incase the user clicks the button again without letting the code to finish 
+        #Thereby theoretically allowing them to end up with a negative gold balance
+        if user.coins==0:
+            return redirect("/no_more_coins")
             
         if 'farm' in request.POST:
             
