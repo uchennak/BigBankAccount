@@ -291,4 +291,8 @@ def logout(request):
     return redirect('/login')
 
 def faq(request):
-    return render("faq.html")
+    user = User.objects.get(id=request.session['user_id'])
+    context = {
+    "user":user
+}
+    return render(request,"faq.html",context)
