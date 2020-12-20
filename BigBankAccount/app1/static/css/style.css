@@ -36,8 +36,13 @@ div{
     margin: 20px;
     padding: 16px;
    }
+.nav_bar{
+    background-color: rgba(230, 227, 227, 0.63);
+}
 
-   
+.notranslate{
+    display: none;
+}   
  
    
    
