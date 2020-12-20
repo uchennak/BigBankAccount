@@ -15,16 +15,7 @@ def index(request):
 }
 
     #setting the levels
-    if user.account_balance > 2999:
-        user.level = 4
-    elif user.account_balance > 1999:
-        user.level = 3
-    elif user.account_balance > 999:
-        user.level = 2
-    elif user.account_balance < 999:
-        user.level = 1
-
-    user.save()
+    change_level(user)
 
     if 'activities' not in request.session:
         request.session['activities'] = []
@@ -34,6 +25,41 @@ def index(request):
     
     return render(request, "index.html",context)
 
+def change_level(user):
+    if user.account_balance > 22999:
+        user.level = 16
+    elif user.account_balance > 19999:
+        user.level = 15
+    elif user.account_balance > 16999:
+        user.level = 14
+    elif user.account_balance > 15999:
+        user.level = 13
+    elif user.account_balance > 13999:
+        user.level = 12
+    elif user.account_balance > 11999:
+        user.level = 11
+    elif user.account_balance > 8999:
+        user.level = 10
+    elif user.account_balance > 7999:
+        user.level = 9
+    elif user.account_balance > 6999:
+        user.level = 8
+    elif user.account_balance > 5999:
+        user.level = 7
+    elif user.account_balance > 4999:
+        user.level = 6
+    elif user.account_balance > 3999:
+        user.level = 5
+    elif user.account_balance > 2999:
+        user.level = 4
+    elif user.account_balance > 1999:
+        user.level = 3
+    elif user.account_balance > 999:
+        user.level = 2
+    elif user.account_balance < 999:
+        user.level = 1
+
+    user.save()
 # Create your views here.
 def process_money(request):
     if request.method == 'GET':
@@ -139,8 +165,10 @@ def add_coins(request):
             user.coin_click_counter -= 1
             user.save()
         else:
+            
+            
             user.coin_click_counter = 5
-            user.coins += 5
+            user.coins += 5 + user.level -1
             user.save()
             return redirect('/')
 
@@ -261,3 +289,6 @@ def display_account(request):
 def logout(request):
     request.session.clear()
     return redirect('/login')
+
+def faq(request):
+    return render("faq.html")
