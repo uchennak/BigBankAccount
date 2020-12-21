@@ -225,12 +225,25 @@ def increase_investment(request):
         user.save()
     else:
         user.investment_click_counter = 5
+        increase_investment_2(user)()
         
-        add_to_investment = int(user.invested_balance / 10)
-        user.invested_balance += add_to_investment
-        user.save()
         messages.error(request, "Added "+str(add_to_investment)+" to your invested account")
     return redirect('/display_invest') 
+def increase_investment_2(user):
+    
+    if user.level in range(1,5):
+        add_to_investment = int(user.invested_balance / 10)
+    if user.level in range(6,10):
+        add_to_investment = int(user.invested_balance / 15)
+    if user.level in range(11,20):
+        add_to_investment = int(user.invested_balance / 20)
+    
+    user.invested_balance += add_to_investment
+    user.save()
+    
+
+    
+
 
 
 
