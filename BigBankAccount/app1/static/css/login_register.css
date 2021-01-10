@@ -9,10 +9,32 @@
 div{
     width:500px;
     margin:5px;
-    border: solid blue 3px;
+    border: solid black 3px;
    background-color: rgba(255, 255, 255, 0.938);
     padding:20px;
 }
+
 .notranslate{
     display: none;
 }
+.credentials{
+    margin: 20px;
+}
+#above_wrapper {
+    width: 1200px;
+    
+        background-color: cyan;
+        margin: 20px;
+        padding: 16px;
+}
+
+#wrapper{
+margin: 20px;
+}
+
+.nav_bar{
+    background-color: rgba(170, 255, 251, 0.63);
+    display: inline-block;
+    width: auto;
+}
+

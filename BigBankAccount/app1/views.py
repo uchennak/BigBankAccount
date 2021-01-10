@@ -180,6 +180,14 @@ def reset(request):
     request.session.flush()
     return redirect("/")
 
+
+def faq(request):
+    if 'user_id' not in request.session:
+        return render(request,"faq_not_logged_in.html")
+    else:
+        return render(request,"faq_logged_in.html")
+   
+
 def display_login(request):
     return render(request,"login.html")
 
@@ -242,11 +250,6 @@ def increase_investment_2(user):
     user.save()
     
 
-    
-
-
-
-
 def display_invest(request):
     user = User.objects.get(id=request.session['user_id'])
     context = {
@@ -303,9 +306,3 @@ def logout(request):
     request.session.clear()
     return redirect('/login')
 
-def faq(request):
-    user = User.objects.get(id=request.session['user_id'])
-    context = {
-    "user":user
-}
-    return render(request,"faq.html",context)

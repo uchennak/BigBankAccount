@@ -4,13 +4,10 @@
     <meta charset="utf-8">
     <title>Index</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
-   
-    
-  </head>
-  <body>
-      
-      <div id='above_wrapper'>
+    <link rel="stylesheet" href="{% static 'css/login_register.css' %}">
+</head>
+<body>
+    <div id='above_wrapper'>
         <div class='nav_bar'><p><a href='/'>Home</a> </p></div>  
             <div class='nav_bar'><p>Your Gold: {{user.account_balance}}</p></div>
             <div class='nav_bar'><p>Coins: {{user.coins}}</p></div>
@@ -18,7 +15,15 @@
             <div class='nav_bar'><p><a href='/display_account'>Account</a></p></div>
             <div class='nav_bar'><p><a href='/logout'>Logout</a></p></div>
             <div class='nav_bar'><p><a href='/faq'>FAQ</a></p></div>
-      </div>
-      <div id='wrapper'></div>
+    </div> 
+
+    <div id='wrapper'>
+      <span id='content'>
+          <h1>How to play:</h1>
+          <p>Use your coins to win gold</p>
+          <p>Each selection comes with a different win/loss ratio</p>
+          <p>Use the Invest feature to multiply your gold</p>
+        </span>
+    </div>
 </body>
 </html>
